@@ -1,13 +1,14 @@
 <template>
     <div class="container">
-        <app-header></app-header>
+        <!-- <app-header></app-header> -->
         <hr>
         <div class="row">
-            <app-servers></app-servers>
-            <app-server-details></app-server-details>
+            <!-- <app-servers></app-servers> -->
+            <!-- <app-server-details></app-server-details> -->
+            <app-user></app-user>
         </div>
         <hr>
-        <app-footer></app-footer>
+        <!-- <app-footer></app-footer> -->
     </div>
 </template>
 
@@ -16,13 +17,15 @@
     import Footer from './components/Footer.vue';
     import Servers from './components/Servers.vue';
     import ServerDetails from './components/ServerDetails.vue';
+    import User from './components/User.vue';
 
     export default {
         components: {
             'app-header': Header,
             'app-servers': Servers,
             'app-server-details': ServerDetails,
-            'app-footer': Footer
+            'app-footer': Footer,
+            'appUser': User
         }
     }
 </script>

@@ -1,21 +1,16 @@
 <template>
 	<div>
-		<p> The Status is {{status}}</p>
-		<button v-on:click="changeStatus">Change Status</button>
+	<app-server-list v-for="server in 5"></app-server-list>
 	</div>
 </template>
 
 <script>
+// Local Components
+
+import Servers from './ServerStatus';
 	export default {
-		data: function(){
-			return {
-				status: 'Good to Go'
-			}
-		},
-		methods: {
-			changeStatus: function() {
-				this.status = 'Under Maintenance';
-			}
+		components: {
+			'app-server-list': Servers
 		}
 	}
 </script>

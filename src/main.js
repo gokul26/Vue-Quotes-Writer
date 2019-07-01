@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Home from './Home.vue'
 
-Vue.component('app-server', Home);
+Vue.component('app-server', Home);   // Global Components
 
 new Vue({
   el: '#app',

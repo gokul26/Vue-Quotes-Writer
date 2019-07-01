@@ -1,4 +1,6 @@
-
+<template>
+    <div>
+        <!-- Header Part -->
         <div class="row">
             <div class="col-xs-12">
                 <header>
@@ -7,12 +9,11 @@
             </div>
         </div>
         <hr>
+        <!-- Server List -->
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <ul class="list-group">
-                    <li
-                            class="list-group-item"
-                            v-for="index in 5">
+                    <li class="list-group-item" v-for="index in 5">
                         Server #{{ index }}
                     </li>
                 </ul>
@@ -22,6 +23,7 @@
             </div>
         </div>
         <hr>
+        <!-- Server Actions -->
         <div class="row">
             <div class="col-xs-12">
                 <footer>
@@ -29,5 +31,11 @@
                 </footer>
             </div>
         </div>
+    </div>
+</template>
 
-<script></script>
+<script>
+    export default {
+
+    }
+</script>

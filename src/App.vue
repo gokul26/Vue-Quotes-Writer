@@ -1,40 +1,52 @@
 <template>
     <div class="container">
-        <app-header></app-header>
+        <app-header :maxQuotes="maxQuote" :quoteCount="quotes.length"></app-header>
+        <app-New-Quote @quotePosted="addQuote"></app-New-Quote>
         <hr>
+        <app-quote-grid :quotes="quotes" @quoteDelete="delQuote"></app-quote-grid>
         <div class="row">
-            <app-servers></app-servers>
-            <app-server-details></app-server-details>
-            <app-user></app-user>
+            <div class="col-sm-12 text-center bg-info">
+                Info: Click on Quote to Delete it
+            </div>
         </div>
-        <hr>
-        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-    import Header from './components/Header.vue';
-    import Footer from './components/Footer.vue';
-    import Servers from './components/Servers.vue';
-    import ServerDetails from './components/ServerDetails.vue';
-    import Server from './components/Server.vue';
-    // import User from './components/User.vue';
+import QuoteGrid from './components/QuoteGrid';
+import NewQuote from './components/NewQuote';
+import Header from './components/header';
+import quoteBus from './main';
 
-    export default {
-        components: {
-            'appHeader': Header,
-            'appFooter': Footer,
-            'appServers': Servers,
-            'appServerDetails': ServerDetails
-            // 'appUser': User
+export default  {
+    data: function(){
+        return  {
+            quotes: ['All is Well','Hello'],
+            maxQuote:   10
+        }
+    },
+    components:{
+        appQuoteGrid: QuoteGrid,
+        appNewQuote: NewQuote,
+        appHeader: Header
+    },
+    methods:{
+        addQuote:function(quote){
+            if(this.quotes.length >= this.maxQuote)
+            {
+                return alert('Delete Some QUotes First');
+            }
+            else
+            {
+                this.quotes.unshift(quote);
+            }
+        },
+        delQuote:function(quote){
+            this.quotes.splice(quote,1);
         }
     }
+}
 </script>
 
 <style>
-    div.component {
-        border: 1px solid black;
-        padding: 30px;
-    }
-
 </style>
